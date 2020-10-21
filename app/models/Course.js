@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     schedule: {
       type: DataTypes.STRING
     },
-    descrtion: {
+    descrption: {
       type: DataTypes.STRING
     }
   }, { timestamps: false });
