@@ -20,7 +20,8 @@ exports.create = (req, res) => {
   const studentcourses = {
     courseId: req.body.courseId,
     semesterId : req.body.semesterId,
-    studentId: req.body.studentId
+    studentId: req.body.studentId,
+    grade: req.body.grade
   };
 
   // Save Course in the database

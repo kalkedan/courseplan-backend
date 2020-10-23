@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER(11),
       allowNull: false
     },
+    grade: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
   }, { timestamps: false });
 
 
