@@ -22,7 +22,8 @@ exports.create = (req, res) => {
         major : req.body.major,
         gradData: req.body.gradData,
         advisorId : req.body.advisorId,
-        degreeId : req.body.degreeId
+        degreeId : req.body.degreeId,
+        roll: req.body.roll
     };
 
     // Save Student in the database
