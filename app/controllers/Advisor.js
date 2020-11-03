@@ -17,7 +17,8 @@ exports.create = (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        dept : req.body.dept 
+        dept : req.body.dept,
+        roll: req.body.roll
     };
 
     // Save Advisor in the database
