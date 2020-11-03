@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         dept: {
             type: DataTypes.STRING
-        }
+        },
         roll: {
             type: DataTypes.STRING
         }

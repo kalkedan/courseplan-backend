@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
         email: {
             type: DataTypes.STRING
         },
+        roll: {
+            type: DataTypes.STRING
+        },
         major: {
             type: DataTypes.STRING
         },
