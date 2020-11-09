@@ -18,10 +18,8 @@ module.exports = app => {
   // Delete a Course with id
   router.delete("/:id", studentCourses.delete);
 
-
   // Retrieve a single Course with id
-  //router.get("/course/:courseId", studentCourses.findCourseById);
-
+  router.get("/byStudentId/:studentId", studentCourses.findByStudentId);
 
   app.use('/api/studentCourses', router);
 };

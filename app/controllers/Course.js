@@ -19,8 +19,8 @@ exports.create = (req, res) => {
         number: req.body.number,
         level: req.body.level,
         hours: req.body.hours,
-        dept : req.body.dept,
-        schedule : req.body.schedule
+        dept: req.body.dept,
+        schedule: req.body.schedule
 
     };
 
