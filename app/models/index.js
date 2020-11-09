@@ -29,7 +29,7 @@ Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
-  
+
 });
 
 
@@ -43,23 +43,38 @@ db.courses = require("./Course.js")(sequelize, Sequelize);
 db.studentcourses = require("./StudentCourse.js")(sequelize, Sequelize);
 db.advisors = require("./Advisor.js")(sequelize, Sequelize);
 db.semesters = require("./Semester.js")(sequelize, Sequelize);
-db.students = require("./Student.js")(sequelize,Sequelize);
-db.degrees = require("./Degree.js")(sequelize,Sequelize);
+db.students = require("./Student.js")(sequelize, Sequelize);
+db.degrees = require("./Degree.js")(sequelize, Sequelize);
 
 
 //db.courses.hasMany(db.studentcourses, { as: "studentcourses" });
+db.courses.hasMany(db.studentcourses, {
+  foreignKey: "courseId",
+  allowNull: false,
+  as: 'studentcourses'
+});
 db.studentcourses.belongsTo(db.courses, {
   foreignKey: "courseId",
   allowNull: false,
-  as: "courses",
+  as: 'courses'
 });
 
+db.semesters.hasMany(db.studentcourses, {
+  foreignKey: "semesterId",
+  allowNull: false,
+  as: 'studentcourses'
+});
 db.studentcourses.belongsTo(db.semesters, {
   foreignKey: "semesterId",
   allowNull: false,
   as: "semesters",
 });
 
+db.students.hasMany(db.studentcourses, {
+  foreignKey: "studentId",
+  allowNull: false,
+  as: 'studentcourses'
+});
 db.studentcourses.belongsTo(db.students, {
   foreignKey: "studentId",
   allowNull: false,
