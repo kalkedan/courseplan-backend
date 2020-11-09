@@ -115,16 +115,25 @@ exports.delete = (req, res) => {
     });
 };
 
-// exports.findCourseById = (req, res) => {
-//   const courseId = req.params.courseId;
+exports.findByStudentId = (req, res) => {
+  const studentId = req.params.studentId;
+  var condition = studentId ? {
+    studentId: {
+      [Op.like]: `%${studentId}%`
+    }
+  } : null;
 
-//   Course.findByPk(courseId, { include: ["studentCourses"] })
-//       .then(data => {
-//           res.send(data);
-//       })
-//       .catch(err => {
-//           res.status(500).send({
-//               message: "Error retrieving Course with id=" + id
-//           });
-//       });
-// };
+  StudentCourse.findAll({
+    include: ["semesters", "courses", "students"],
+    where: condition
+  })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving studnetCourse."
+      });
+    });
+};
+
