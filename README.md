@@ -4,6 +4,7 @@ reinstall with lastest installer
 b.	Mac – 
 sudo npm install n -g
 
+
 Check Node version 
 node -v
 v10.12.0
